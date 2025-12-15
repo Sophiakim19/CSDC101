@@ -1,7 +1,6 @@
 Dispatch Decision Engine  
 C++ Text-Based Visual Novel
 
----
 
 Project Overview
 
@@ -12,7 +11,6 @@ and eventual transition from frontline superhero work to a dispatcher role.
 The project demonstrates how functions, Boolean variables, integers, and conditional statements can be used to create branching 
 narratives and persistent consequences across multiple scenes.
 
----
 
 Objectives of the Program
 
@@ -22,7 +20,6 @@ Objectives of the Program
 - Simulate relationship and personality development
 - Produce a final epilogue that reflects accumulated player choices
 
----
 
 Program Structure
 
@@ -32,7 +29,6 @@ These actions update global variables that affect later scenes and the ending.
 
 The scenes are called sequentially from the `main()` function.
 
----
 
 Global Variables
 
@@ -57,7 +53,6 @@ Additional Tracking Variables
 
 These additional variables add depth and are explained through narrative output in later scenes and the epilogue.
 
----
 
 Scene Breakdown and Decision Paths
 
@@ -71,8 +66,6 @@ This scene establishes Robert’s moral direction.
 
 This choice influences later combat narration and the epilogue.
 
----
-
 2. Street Fight  
 Function: `scene_street_fight()`
 
@@ -82,8 +75,6 @@ This scene teaches immediate tactical consequences.
 - Left-hand punch succeeds and sets `isTactical = true`
 
 Health reduction is reflected using the `Robert_Health` variable.
-
----
 
 3. Superhero Bar (Flambae Scene)  
 Function: `scene_bar_flambae()`
@@ -95,8 +86,6 @@ This scene affects public perception and relationship memory.
 
 The choice updates `Blazer_Impression_Score`, which affects the epilogue.
 
----
-
 4. Billboard Scene (Romance Route)  
 Function:`scene_billboard()`
 
@@ -107,8 +96,6 @@ This is the emotional pivot point with Blonde Blazer.
 
 This decision directly impacts relationship outcomes in the ending.
 
----
-
 5. Combat with Toxic  
 Function: `scene_combat_toxic()`
 
@@ -118,8 +105,6 @@ This scene reflects Robert’s established personality.
 - Stomping emphasizes brutal efficiency
 
 Dialogue output changes depending on the value of `isMerciful`.
-
----
 
 Epilogue Summary
 
@@ -135,8 +120,6 @@ The epilogue evaluates all stored variables and prints a personalized conclusion
 
 This reinforces the idea that early decisions have long-term consequences.
 
----
-
 Branching Logic Explanation
 
 Each scene functions like a station in a railway system.  
@@ -144,8 +127,6 @@ Player choices act as switches, while Boolean variables remain set throughout th
 narrative tracks become available or altered.
 
 This structure demonstrates how simple conditional logic can simulate complex story branching.
-
----
 
 How to Run the Program:
 
