@@ -1,0 +1,188 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Global variables as per requirements
+bool isMerciful = false;
+int Blazer_Impression_Score = 0;
+bool isRomanticTensionActive = false;
+
+// Additional variables for more nuanced tracking (explained in documentation)
+int Robert_Health = 100;  // Tracks health for street fight consequences
+bool isTactical = false;  // Tracks if Robert learned from street fight
+
+// Function prototypes
+void scene_interrogation();
+void scene_street_fight();
+void scene_bar_flambae();
+void scene_billboard();
+void scene_combat_toxic();
+void epilogue_summary();
+
+int main() {
+    cout << "Welcome to the Dispatch Visual Novel: Robert's Pivot" << endl;
+    cout << "Your choices will shape Robert's journey from superhero to dispatcher." << endl << endl;
+
+    // Call scenes in sequence
+    scene_interrogation();
+    scene_street_fight();
+    scene_bar_flambae();
+    scene_billboard();
+    scene_combat_toxic();
+    epilogue_summary();
+
+    return 0;
+}
+
+void scene_interrogation() {
+    cout << "Scene: Apartment Interrogation" << endl;
+    cout << "You are Robert, interrogating a villain. The Soothing Goon is dangling from the building." << endl;
+    cout << "Do you pull him back or let him drop?" << endl;
+    cout << "1. Pull Him Back (Merciful)" << endl;
+    cout << "2. Let Him Drop (Ruthless)" << endl;
+
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        isMerciful = true;
+        cout << "You pull him back. The goon is grateful, and your mercy is noted." << endl;
+    } else if (choice == 2) {
+        isMerciful = false;
+        cout << "You let him drop. Fear spreads, establishing your ruthless reputation." << endl;
+    } else {
+        cout << "Invalid choice. Defaulting to ruthless." << endl;
+        isMerciful = false;
+    }
+    cout << endl;
+}
+
+void scene_street_fight() {
+    cout << "Scene: Street Fight" << endl;
+    cout << "A thug attacks with a crowbar. Choose your punch." << endl;
+    cout << "1. Right Hand Punch (Risky)" << endl;
+    cout << "2. Left Hand Punch (Tactical)" << endl;
+
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        isTactical = false;
+        Robert_Health -= 20;  // Temporary status effect
+        cout << "You punch with your right hand and get countered. You take damage (Health: " << Robert_Health << "). Lesson learned: be tactical." << endl;
+    } else if (choice == 2) {
+        isTactical = true;
+        cout << "You punch with your left hand and knock him out. Tactical success!" << endl;
+    } else {
+        cout << "Invalid choice. Defaulting to risky." << endl;
+        isTactical = false;
+        Robert_Health -= 20;
+        cout << "You take damage (Health: " << Robert_Health << ")." << endl;
+    }
+    cout << endl;
+}
+
+void scene_bar_flambae() {
+    cout << "Scene: Superhero Bar with Flambae" << endl;
+    cout << "Flambae is on fire. What do you throw?" << endl;
+    cout << "1. Water (Subdued)" << endl;
+    cout << "2. Alcohol (Amplifies fire)" << endl;
+
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        Blazer_Impression_Score += 1;
+        cout << "You throw water. Flames extinguished, but it's a mild impression." << endl;
+    } else if (choice == 2) {
+        Blazer_Impression_Score += 3;  // Stronger impression
+        cout << "You throw alcohol. Fire amplifies, chaos ensues, and Blonde Blazer remembers this vividly." << endl;
+    } else {
+        cout << "Invalid choice. Defaulting to water." << endl;
+        Blazer_Impression_Score += 1;
+    }
+    cout << "Blazer Impression Score: " << Blazer_Impression_Score << endl << endl;
+}
+
+void scene_billboard() {
+    cout << "Scene: Billboard with Blonde Blazer" << endl;
+    cout << "A romantic moment on the billboard. What do you do?" << endl;
+    cout << "1. Kiss her (Romantic)" << endl;
+    cout << "2. Let the moment pass (Tension)" << endl;
+
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        isRomanticTensionActive = true;
+        cout << "You kiss her. Romance blossoms." << endl;
+    } else if (choice == 2) {
+        isRomanticTensionActive = false;
+        cout << "You let it pass. Tension remains, but no commitment." << endl;
+    } else {
+        cout << "Invalid choice. Defaulting to letting pass." << endl;
+        isRomanticTensionActive = false;
+    }
+    cout << endl;
+}
+
+void scene_combat_toxic() {
+    cout << "Scene: Combat with Toxic" << endl;
+    cout << "Toxic is down. Punt or stomp?" << endl;
+    cout << "1. Punt (Flashy)" << endl;
+    cout << "2. Stomp (Brutal)" << endl;
+
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        cout << "You punt him. Flashy and creative!" << endl;
+        if (isMerciful) {
+            cout << "Your merciful nature makes it less lethal." << endl;
+        }
+    } else if (choice == 2) {
+        cout << "You stomp him. Brutal efficiency!" << endl;
+        if (!isMerciful) {
+            cout << "Your ruthless streak shines through." << endl;
+        }
+    } else {
+        cout << "Invalid choice. Defaulting to stomp." << endl;
+        cout << "Brutal efficiency!" << endl;
+        if (!isMerciful) {
+            cout << "Your ruthless streak shines through." << endl;
+        }
+    }
+    cout << endl;
+}
+
+void epilogue_summary() {
+    cout << "Epilogue: Robert's Pivot" << endl;
+    if (isMerciful) {
+        cout << "Robert's path of compassionate leadership leads him to become a dispatcher who values mercy." << endl;
+    } else {
+        cout << "Robert's pragmatic efficiency makes him a feared dispatcher." << endl;
+    }
+
+    cout << "Blonde Blazer's impression of Robert is " << Blazer_Impression_Score << ". ";
+    if (Blazer_Impression_Score >= 3) {
+        cout << "She remembers his bold, chaotic actions vividly." << endl;
+    } else {
+        cout << "She has a mild recollection of his subdued behavior." << endl;
+    }
+
+    if (isRomanticTensionActive) {
+        cout << "Romance with Blonde Blazer is active, adding warmth to his new role." << endl;
+    } else {
+        cout << "Romantic tension lingers, but no deep connection formed." << endl;
+    }
+
+    if (isTactical) {
+        cout << "Robert's tactical lessons from the street fight aid his dispatching skills." << endl;
+    } else {
+        cout << "Robert carries scars from poor tactics, reminding him of the need for strategy." << endl;
+    }
+
+    cout << "Health remaining: " << Robert_Health << endl;
+    cout << "Thank you for playing!" << endl;
+}
